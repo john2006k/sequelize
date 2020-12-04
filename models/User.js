@@ -33,12 +33,6 @@ password: {
     type: DataTypes.STRING
   }
 })
-User.belongsToMany(File);
-// User.hasMany(File, {
-//   foreignKey: 'userId',
-//   onDelete: 'RESTRICT',
-//   onUpdate: 'CASCADE'
-// });
 
 
 module.exports = User;

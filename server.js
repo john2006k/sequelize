@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const sequelize = require('./utils/database');
+const applyExtraSetup = require('./extra-setup');
 const PORT = process.env.PORT || 8000;
 const app = express();
 
@@ -23,5 +24,7 @@ async function start() {
       console.log(e)
     }
   }
+
+  applyExtraSetup(sequelize)
   
   start()

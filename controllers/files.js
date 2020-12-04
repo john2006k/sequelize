@@ -40,7 +40,7 @@ const imageFilter = (req, file, cb) => {
   
 const getFiles = async (req, res) => {
     try {
-        const files = await File.findAll({where: {userId: req.user.id}});
+        const files = await File.findAll({where: {UserId: req.user.id}});
         if (!files) return res.status(400).send({message: "Not own files"})
         res.status(200).send(files);
       } catch (e) {
@@ -54,13 +54,13 @@ const getFiles = async (req, res) => {
 const createFile = async (req, res) => {
     try {
       const title = req.body.title;    
-      const userId = req.user.id;
+      const UserId = req.user.id;
         if (req.fileValidationError) {
             return res.status(400).send(req.fileValidationError);
           }
         if (req.files) {
         req.files.map(async (file) => {
-          const newFile = await File.create({ title, userId, image: file.filename });
+          const newFile = await File.create({ title, UserId, image: file.filename });
         });
         res.status(201).send({message: "Succes created"})
         }  
@@ -78,7 +78,7 @@ const getOneFile = async (req, res) => {
   try {
       const file = await File.findOne({where: {
         id: req.params.id, 
-        userId: req.user.id
+        UserId: req.user.id
       }});
       if (!file) return res.status(400).send({message: "Not own file"})
       res.status(200).send(file)
