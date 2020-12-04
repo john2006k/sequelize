@@ -1,5 +1,5 @@
 # sequelize
-testing sequelize
+test task
 
 Deploy nodejs (Express + sequelize) project:
 The file structure can be any (Models, Routes, Controllers), but keep in mind that the project will be expanded.
