@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const path = require('path');
 const sequelize = require('./utils/database');
 const applyExtraSetup = require('./extra-setup');
@@ -12,14 +12,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 
-app.use("/files", files());
-app.use("/users", users());
+app.use('/files', files());
+app.use('/users', users());
 
 async function start() {
     try {
       await sequelize.sync()
       app.listen(PORT)
-      console.log("listen");
+      console.log('listen');
     } catch (e) {
       console.log(e)
     }

@@ -1,8 +1,8 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../utils/database");
-const User = require("./User");
+const { DataTypes } = require('sequelize');
+const sequelize = require('../utils/database');
+const User = require('./User');
 
-const File = sequelize.define("File", {
+const File = sequelize.define('File', {
   id: {
     primaryKey: true,
     autoIncrement: true,
@@ -16,14 +16,7 @@ const File = sequelize.define("File", {
   image: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
+  },
 });
 
-// File.hasMany(User, {
-//   foreignKey: 'userId',
-//   onDelete: 'RESTRICT',
-//   onUpdate: 'CASCADE'
-// });
-
 module.exports = File;
-

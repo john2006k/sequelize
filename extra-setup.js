@@ -1,7 +1,7 @@
 const applyExtraSetup = (sequelize) => {
     const { User, File} = sequelize.models;
     User.hasMany(File, {
-        onDelete: "RESTRICT"
+        onDelete: 'RESTRICT'
     });
     File.belongsTo(User);
 }
